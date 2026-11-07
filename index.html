@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>라윤 퀘스트 (Rayoon Quest) - 아빠와 라윤이의 협동 모험</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- 상단 UI 헤더 -->
+    <header id="ui-header">
+      <div class="profile-group">
+        <div class="profile-card dad-card active" id="dad-ui">
+          <div class="avatar dad-avatar">👨</div>
+          <div class="profile-info">
+            <span class="name">아빠</span>
+            <span class="hearts" id="dad-hearts">❤️❤️❤️</span>
+          </div>
+        </div>
+        <div class="profile-card rayoon-card" id="rayoon-ui">
+          <div class="avatar rayoon-avatar">👧</div>
+          <div class="profile-info">
+            <span class="name">라윤</span>
+            <span class="hearts" id="rayoon-hearts">❤️❤️❤️</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mission-scroll">
+        <span class="scroll-pin">📜</span>
+        <span class="mission-text" id="mission-status">미션: 별 5개를 모두 모으세요! (⭐ 0/5)</span>
+      </div>
+
+      <div class="top-actions">
+        <button id="btn-char-switch" class="action-btn switch-btn" title="모바일 캐릭터 전환">캐릭터 전환 🔄</button>
+        <button id="btn-restart" class="action-btn" title="다시 시작">재도전 🔄</button>
+      </div>
+    </header>
+
+    <!-- 게임 캔버스 -->
+    <div id="canvas-wrapper">
+      <canvas id="gameCanvas" width="960" height="540"></canvas>
+      
+      <!-- 클리어 / 오버 오버레이 -->
+      <div id="overlay" class="hidden">
+        <div class="dialog-box">
+          <h2 id="overlay-title">🎉 미션 클리어!</h2>
+          <p id="overlay-desc">라윤이와 아빠가 힘을 합쳐 별을 모두 모았어요!</p>
+          <button id="btn-next" class="btn-primary">다시 플레이하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 조작 가이드 & 모바일 터치 패드 -->
+    <footer id="ui-footer">
+      <div class="desktop-controls-guide">
+        <span>👨 <b>아빠:</b> [A] [D] 이동 · [W] 점프 (발판 스위치 작동)</span>
+        <span>👧 <b>라윤:</b> [←] [→] 이동 · [↑] 높은 2단점프 (별 수집)</span>
+      </div>
+
+      <!-- 모바일 터치 조작 패드 (스마트폰 접속 시 표시) -->
+      <div id="touch-controls">
+        <div class="touch-left">
+          <button class="touch-btn" id="btn-left">◀</button>
+          <button class="touch-btn" id="btn-right">▶</button>
+        </div>
+        <div class="touch-center">
+          <span class="current-control-label" id="current-control-label">현재 조작: 👧 라윤</span>
+        </div>
+        <div class="touch-right">
+          <button class="touch-btn touch-jump" id="btn-jump">🔺 점프</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
